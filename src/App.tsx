@@ -111,8 +111,8 @@ function App() {
     selectedIndex: selectedslowDownOption,
   };
 
-  const holdItAudio = new Audio("./audios/PW-HoldIt.mp3");
-  const holdItAudioReversed = new Audio("./audios/PW-HoldIt-RV.mp3");
+  const holdItAudio = new Audio("random-aa/audios/PW-HoldIt.mp3");
+  const holdItAudioReversed = new Audio("random-aa/audios/PW-HoldIt-RV.mp3");
   function handlePlayAudio(audio: HTMLAudioElement) {
     audio.playbackRate = slowDownRate;
     audio.currentTime = isReverse ? 0.75 : 0; //removes the noise that comes before the reversed line
@@ -131,7 +131,7 @@ function App() {
         /*Portrait Mode */
 
         <div className="flex w-screen h-screen bg-black items-center justify-center">
-          <p className="text-white font-sarabun">{"กรุณาวางจอเป็นแนวนอน"}</p>
+          <p className="text-white text-2xl font-sarabun">{"กรุณาวางจอเป็นแนวนอน"}</p>
         </div>
       ) : (
         /* LANDSCAPE MODE */
@@ -158,7 +158,7 @@ function App() {
                 >
                   <GridSvg Settings={GridSvgSettingsNarrator}>
                     <div className="bx-2 pt-2 w-full">
-                      <p className=" text-white text-2xl font-serif break-words w-full text-center">
+                      <p className=" text-white text-xl font-serif break-words w-full text-center">
                         <span className="font-sarabun">
                           {"รู้หรือไม่: หากคุณนำเสียง"}
                         </span>
@@ -176,7 +176,7 @@ function App() {
                         </span>
                         {'"'}
                       </p>
-                      <p className=" text-green-600 text-2xl font-serif break-words w-full text-center">
+                      <p className=" text-green-600 text-xl font-serif break-words w-full text-center">
                         <span className="font-sarabun">{"ลองปรับ"}</span>
                         <span className="text-red-600">{" Slow Down"}</span>
                         <span className=" font-sarabun">

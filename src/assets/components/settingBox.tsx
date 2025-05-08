@@ -1,5 +1,4 @@
 import { GrRadial, GrRadialSelected } from "react-icons/gr";
-//import { getContentBoxWidth } from "../modules/useWindowDimensions";
 import GridSvg, { GridSvgSettingsProps } from "./gridSvg";
 
 type OptionType = "choice" | "button"
@@ -15,14 +14,12 @@ export interface ChoiceSettingInputProps {
 }
 
 const settingBox = (message: string, optionType: OptionType, optionInput: Option | ChoiceSettingInputProps) => {
-  //const contentBoxWidth = getContentBoxWidth();
   const DividerSvg: React.FC = () => {
     const patternId = "LineDash";
     return (
       <svg
         xmlns="http://www.w3.org/2000/svg"
         className="my-1 w-full"
-        //width={contentBoxWidth}
         height={2}
       >
         <defs>
