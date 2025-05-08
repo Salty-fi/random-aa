@@ -136,11 +136,7 @@ function App() {
       ) : (
         /* LANDSCAPE MODE */
 
-        <div
-          className={
-            "fixed top-0 left-0 w-screen h-screen bg-[url('./images/courtroom.png')] bg-no-repeat bg-cover -z-10 filter bg-[center_20%]"
-          }
-        >
+        <div className="fixed top-0 left-0 w-screen h-screen bg-[url('/images/courtroom.png')] bg-no-repeat bg-cover -z-10 filter bg-[center_20%]">
           <GridSvg Settings={GridSvgSettingsBg}>
             <div className="bg-[#000000b0] flex-col justify-center items-center h-screen w-screen">
               <div className={`flex h-3/4 justify-center items-center`}>
