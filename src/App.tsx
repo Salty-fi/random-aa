@@ -111,8 +111,8 @@ function App() {
     selectedIndex: selectedslowDownOption,
   };
 
-  const holdItAudio = new Audio("random-aa/audios/PW-HoldIt.mp3");
-  const holdItAudioReversed = new Audio("random-aa/audios/PW-HoldIt-RV.mp3");
+  const holdItAudio = new Audio("/audios/PW-HoldIt.mp3");
+  const holdItAudioReversed = new Audio("/audios/PW-HoldIt-RV.mp3");
   function handlePlayAudio(audio: HTMLAudioElement) {
     audio.playbackRate = slowDownRate;
     audio.currentTime = isReverse ? 0.75 : 0; //removes the noise that comes before the reversed line
@@ -139,17 +139,17 @@ function App() {
           {/* Background-sticky */}
           <img
             alt="naruhodo"
-            src="random-aa/images/naruhodo.png"
+            src="/images/naruhodo.png"
             className="absolute bottom-0 left-[2%] w-[37%] h-auto"
           />
           <img
             alt="mayoi"
-            src="random-aa/images/mayoi.png"
+            src="/images/mayoi.png"
             className="absolute bottom-0 w-[25%] h-auto"
           />
           <img
             alt="mitsurugi"
-            src="random-aa/images/mitsurugi.png"
+            src="/images/mitsurugi.png"
             className="absolute bottom-0 right-[2%] w-[35%] h-auto"
           />
           <div className="absolute top-[2%] right-[2%] text-white text-sm font-sarabun text-right">
