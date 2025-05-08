@@ -128,10 +128,53 @@ function App() {
   return (
     <div>
       {orientation === "portrait" ? (
-        /*Portrait Mode */
+        /* PORTRAIT MODE */
 
-        <div className="flex w-screen h-screen bg-black items-center justify-center">
-          <p className="text-white text-2xl font-sarabun">{"กรุณาวางจอเป็นแนวนอน"}</p>
+        <div className="relative w-screen h-screen bg-[#226DB7FE] flex items-center justify-center">
+          {/* Centered text */}
+          <p className="text-white text-2xl font-sarabun text-center">
+            {"กรุณาวางจอเป็นแนวนอน"}
+          </p>
+
+          {/* Background-sticky */}
+          <img
+            alt="naruhodo"
+            src="random-aa/images/naruhodo.png"
+            className="absolute bottom-0 left-[2%] w-[37%] h-auto"
+          />
+          <img
+            alt="mayoi"
+            src="random-aa/images/mayoi.png"
+            className="absolute bottom-0 w-[25%] h-auto"
+          />
+          <img
+            alt="mitsurugi"
+            src="random-aa/images/mitsurugi.png"
+            className="absolute bottom-0 right-[2%] w-[35%] h-auto"
+          />
+          <div className="absolute top-[2%] right-[2%] text-white text-sm font-sarabun text-right">
+            <p>{"Website นี้จัดทำโดย เชฟเกลือ"}</p>
+            <p>{"เพื่อความบันเทิงเท่านั้น"}</p>
+            <p>{"Discord: saltyOwO"}</p>
+            <a
+              href="https://github.com/Salty-fi/random-aa"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-blue-300 hover:text-blue-400"
+            >
+              {"Source Code (GitHub)"}
+            </a>
+            <p>{"และขอขอบคุณ"}</p>
+            <p>{"Fanarts น่ารัก ๆ โดยคุณ Miso"}</p>
+            <a
+              href="https://x.com/Miso_28_?t=pxbFuHT4uGVahalW65SlRw"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline text-blue-300 hover:text-blue-400"
+            >
+              {"X (Twitter)"}
+            </a>
+          </div>
         </div>
       ) : (
         /* LANDSCAPE MODE */
@@ -168,12 +211,13 @@ function App() {
                         <span className="font-sarabun">{" มา"}</span>
                         <span className="text-red-600">{" Reverse"}</span>
                         <span className="font-sarabun">
-                          {" ดูแล้ว เขากำลังด่าว่า"}
+                          {" คุณจะได้ยินเขากำลังด่าว่า"}
                         </span>
                         {' "'}
                         <span className="text-red-600 font-sarabun">
                           {"เอ็งโง่"}
                         </span>
+                        <span className="text-red-600">{"!"}</span>
                         {'"'}
                       </p>
                       <p className=" text-green-600 text-xl font-serif break-words w-full text-center">
