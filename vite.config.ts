@@ -5,10 +5,14 @@ import tailwindcss from '@tailwindcss/vite'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(),tailwindcss(),],
-  
-  // remove base in development to avoid file path issue
+  base: "/random-aa",
+
+  // remove base to workaround file path issue
+  // always reload when you put/take it
   // DO NOT FORGET to put it back in production
   //
   // base: "/random-aa",
   //
+  // Tips: before publish, reload dev env and trigger reverse,
+  // if it shouts "เอ็งโง่!", it means you forgot to reconfig here
 });
