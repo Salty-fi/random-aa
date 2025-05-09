@@ -60,14 +60,52 @@ const SettingBox: React.FC<SettingBoxProps> = ({
     );
   };
 
+  
+
+  const bgClassName = isChosen ? "bg-white" : "bg-transparent";
+  const textClassName = "ml-[10%] text-3xl font-serif z-10 "
+    + (isChosen ? "text-black" : "text-white");
+  const boxTriangleClassName = "absolute top-1/2 right-0 translate-y-[-50%] w-0 h-0 border-y-[24px] border-l-[24px] border-y-transparent "
+    + (isChosen ? "border-l-amber-300" : "border-l-transparent");
+  const boxRectangleClassName = "absolute left-0 top-0 h-full w-[calc(100%-24px)] "
+    + (isChosen ? "bg-amber-300" : "bg-transparent");
+
   const ChoiceSettingInput: React.FC<ChoiceSettingInputProps> = (Props) => {
     return (
       <div className={"flex justify-center items-center"}>
         {Props.options.map((option, index) => (
-          <div className={"flex flex-col w-1/3 items-center"} key={index}>
-            <p className="text-black font-serif">{option.optionName}</p>
+          <div className="flex flex-col w-1/3 items-center" key={index}>
+            <p
+              className={
+                "text-black font-serif px-1 mb-1 mt-1 " +
+                (!(index === Props.selectedIndex)
+                  ? "bg-transparent"
+                  : isChosen
+                  ? "bg-amber-300"
+                  : "bg-[#d5e7f3]")
+              }
+            >
+              {option.optionName}
+            </p>
+            <div className="flex h-1 w-full overflow-visible">
+              <div
+                className={
+                  "relative top-2 left-1/2 -translate-x-1/2 -translate-y-full rotate-90 w-0 h-0 " +
+                  "border-y-[8px] border-l-[8px] border-y-transparent " +
+                  (!(index === Props.selectedIndex)
+                    ? "border-l-transparent"
+                    : isChosen
+                    ? "border-l-amber-300"
+                    : "border-l-[#d5e7f3]")
+                }
+              />
+            </div>
+
             {index === Props.selectedIndex ? (
-              <GrRadialSelected color={isChosen ? "#38a1de" : "#eee"} className="mb-1 cursor-pointer" />
+              <GrRadialSelected
+                color={isChosen ? "#38a1de" : "#eee"}
+                className="mb-1 cursor-pointer"
+              />
             ) : (
               <GrRadial
                 color="#222"
@@ -92,12 +130,12 @@ const SettingBox: React.FC<SettingBoxProps> = ({
     };
     return (
       <div
-        className="h-10 mx-2 my-1 border-2 border-[#ffffff] bg-[#38a1de] cursor-pointer"
+        className="h-12 mx-2 my-1 border-2 border-[#ffffff] bg-[#38a1de] cursor-pointer"
         onClick={inputOption.handleChoose}
       >
         <GridSvg Settings={GridSvgSettings}>
           <div className="flex items-center justify-center h-full">
-            <p className="text-[#ffffff] text-2xl font-serif">
+            <p className="text-[#ffffff] text-3xl font-serif">
               {inputOption.optionName}
             </p>
           </div>
@@ -105,14 +143,7 @@ const SettingBox: React.FC<SettingBoxProps> = ({
       </div>
     );
   };
-
-  const bgClassName = isChosen ? "bg-white" : "bg-transparent";
-  const textClassName = "ml-[10%] text-2xl font-serif z-10 " + 
-                        (isChosen ? "text-black" : "text-white");
-  const boxTriangleClassName = "absolute top-1/2 right-0 translate-y-[-50%] w-0 h-0 border-y-[24px] border-l-[24px] border-y-transparent " + 
-                               (isChosen ? "border-l-amber-300" : "border-l-transparent");
-  const boxRectangleClassName = "absolute left-0 top-0 h-full w-[calc(100%-24px)] " +
-                                (isChosen ? "bg-amber-300" : "bg-transparent");
+  
   return (
     <div className={bgClassName} onClick={onBoxClick}>
       <div className="mx-[1] overflow-hidden">

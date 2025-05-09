@@ -186,7 +186,7 @@ function App() {
             <div className="bg-[#000000b0] flex-col justify-center items-center h-screen w-screen">
               <div className={`flex h-3/4 justify-center items-center`}>
                 <div
-                  className={`bg-[#38a1de] border-4 border-white w-3/4 h-52 justify-self-center filter overflow-hidden`}
+                  className={`bg-[#38a1de] border-4 border-white w-3/4 h-59 justify-self-center filter overflow-hidden`}
                 >
                   <GridSvg Settings={GridSvgSettingsContent}>
                     <div className="my-2 w-full">
