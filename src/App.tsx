@@ -238,7 +238,7 @@ function App() {
                 >
                   <GridSvg Settings={GridSvgSettingsNarrator}>
                     <div className="bx-2 pt-2 w-full overflow-y-auto">
-                      <p className=" text-white text-md font-serif break-words w-full text-center">
+                      <p className=" text-white text-2xl font-serif break-words w-full text-center">
                         <span className="font-sarabun">
                           {"รู้หรือไม่: หากคุณนำเสียง"}
                         </span>
@@ -257,7 +257,7 @@ function App() {
                         <span className="text-red-600">{"!"}</span>
                         {'"'}
                       </p>
-                      <p className=" text-green-600 text-md font-serif break-words w-full text-center">
+                      <p className=" text-green-600 text-2xl font-serif break-words w-full text-center">
                         <span className="font-sarabun">{"ลองปรับ"}</span>
                         <span className="text-red-600">{" Slow Down"}</span>
                         <span className=" font-sarabun">
