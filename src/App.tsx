@@ -1,7 +1,7 @@
 import "./App.css";
 import { useEffect, useState } from "react";
 import GridSvg, { GridSvgSettingsProps } from "./assets/components/gridSvg";
-import settingBox, { ChoiceSettingInputProps, Option } from "./assets/components/settingBox";
+import SettingBox, { ChoiceSettingInputProps, Option } from "./assets/components/settingBox";
 
 function App() {
   function useOrientation() {
@@ -111,8 +111,8 @@ function App() {
     selectedIndex: selectedslowDownOption,
   };
 
-  const holdItAudio = new Audio("/audios/PW-HoldIt.mp3");
-  const holdItAudioReversed = new Audio("/audios/PW-HoldIt-RV.mp3");
+  const holdItAudio = new Audio("audios/PW-HoldIt.mp3");
+  const holdItAudioReversed = new Audio("audios/PW-HoldIt-RV.mp3");
   function handlePlayAudio(audio: HTMLAudioElement) {
     audio.playbackRate = slowDownRate;
     audio.currentTime = isReverse ? 0.75 : 0; //removes the noise that comes before the reversed line
@@ -124,6 +124,8 @@ function App() {
       handlePlayAudio(isReverse ? holdItAudioReversed : holdItAudio);
     },
   };
+
+  const [chosenId, setchosenID] = useState<number>(-1)
 
   return (
     <div>
@@ -139,17 +141,17 @@ function App() {
           {/* Background-sticky */}
           <img
             alt="naruhodo"
-            src="/images/naruhodo.png"
+            src="images/naruhodo.png"
             className="absolute bottom-0 left-[2%] w-[37%] h-auto"
           />
           <img
             alt="mayoi"
-            src="/images/mayoi.png"
+            src="images/mayoi.png"
             className="absolute bottom-0 w-[25%] h-auto"
           />
           <img
             alt="mitsurugi"
-            src="/images/mitsurugi.png"
+            src="images/mitsurugi.png"
             className="absolute bottom-0 right-[2%] w-[35%] h-auto"
           />
           <div className="absolute top-[2%] right-[2%] text-white text-sm font-sarabun text-right">
@@ -184,13 +186,34 @@ function App() {
             <div className="bg-[#000000b0] flex-col justify-center items-center h-screen w-screen">
               <div className={`flex h-3/4 justify-center items-center`}>
                 <div
-                  className={`bg-[#38a1de] border-4 border-white w-3/4 h-50 justify-self-center filter brightness-125 overflow-hidden`}
+                  className={`bg-[#38a1de] border-4 border-white w-3/4 h-52 justify-self-center filter overflow-hidden`}
                 >
                   <GridSvg Settings={GridSvgSettingsContent}>
-                    <div className="my-[2%] w-full">
-                      {settingBox("Reverse", "choice", reverseOption)}
-                      {settingBox("Slow Down", "choice", slowDownOption)}
-                      {settingBox("Ready?", "button", holdItButtonOption)}
+                    <div className="my-2 w-full">
+                      <SettingBox
+                        message={"Reverse"}
+                        optionType={"choice"}
+                        optionInput={reverseOption}
+                        boxKey={0}
+                        isChosenTracker={chosenId}
+                        onclick={() => {setchosenID(0)}}
+                      />
+                      <SettingBox
+                        message={"Slow Down"}
+                        optionType={"choice"}
+                        optionInput={slowDownOption}
+                        boxKey={1}
+                        isChosenTracker={chosenId}
+                        onclick={() => setchosenID(1)}
+                      />
+                      <SettingBox
+                        message={"Ready?"}
+                        optionType={"button"}
+                        optionInput={holdItButtonOption}
+                        boxKey={2}
+                        isChosenTracker={chosenId}
+                        onclick={() => setchosenID(2)}
+                      />
                     </div>
                   </GridSvg>
                 </div>
