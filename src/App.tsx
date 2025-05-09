@@ -2,6 +2,7 @@ import "./App.css";
 import { useEffect, useState } from "react";
 import GridSvg, { GridSvgSettingsProps } from "./assets/components/gridSvg";
 import SettingBox, { ChoiceSettingInputProps, Option } from "./assets/components/settingBox";
+import FullscreenToggleButton from "./assets/components/fullScreenToggleButton";
 
 function App() {
   function useOrientation() {
@@ -134,11 +135,22 @@ function App() {
 
         <div className="relative w-screen h-screen bg-[#226DB7FE] flex items-center justify-center">
           {/* Centered text */}
-          <p className="text-white text-2xl font-sarabun text-center">
+          <p className="text-white text-5xl font-sarabun text-center">
             {"กรุณาวางจอเป็นแนวนอน"}
           </p>
 
           {/* Background-sticky */}
+          <div className="absolute top-[2%] right-[2%]">
+            <div className="flex place-self-end mb-2">
+              <FullscreenToggleButton />
+            </div>
+            <div className="text-white text-sm font-sarabun text-right">
+              <p>{"กด Fullscreen เพื่อ"}</p>
+              <p>{"experience ที่ดีขึ้น"}</p>
+              <p>{"(แนะนำอย่างยิ่ง"}</p>
+              <p>{"สำหรับผู้ใช้มือถือ)"}</p>
+            </div>
+          </div>
           <img
             alt="naruhodo"
             src="images/naruhodo.png"
@@ -154,7 +166,7 @@ function App() {
             src="images/mitsurugi.png"
             className="absolute bottom-0 right-[2%] w-[35%] h-auto"
           />
-          <div className="absolute top-[2%] right-[2%] text-white text-sm font-sarabun text-right">
+          <div className="absolute top-[2%] left-[2%] text-white text-sm font-sarabun">
             <p>{"Website นี้จัดทำโดย เชฟเกลือ"}</p>
             <p>{"เพื่อความบันเทิงเท่านั้น"}</p>
             <p>{"Discord: saltyOwO"}</p>
@@ -196,7 +208,9 @@ function App() {
                         optionInput={reverseOption}
                         boxKey={0}
                         isChosenTracker={chosenId}
-                        onclick={() => {setchosenID(0)}}
+                        onclick={() => {
+                          setchosenID(0);
+                        }}
                       />
                       <SettingBox
                         message={"Slow Down"}
@@ -223,8 +237,8 @@ function App() {
                   className={`bg-[#181f33] border-t-2 border-b-4 border-white h-7/8`}
                 >
                   <GridSvg Settings={GridSvgSettingsNarrator}>
-                    <div className="bx-2 pt-2 w-full">
-                      <p className=" text-white text-xl font-serif break-words w-full text-center">
+                    <div className="bx-2 pt-2 w-full overflow-y-auto">
+                      <p className=" text-white text-md font-serif break-words w-full text-center">
                         <span className="font-sarabun">
                           {"รู้หรือไม่: หากคุณนำเสียง"}
                         </span>
@@ -243,7 +257,7 @@ function App() {
                         <span className="text-red-600">{"!"}</span>
                         {'"'}
                       </p>
-                      <p className=" text-green-600 text-xl font-serif break-words w-full text-center">
+                      <p className=" text-green-600 text-md font-serif break-words w-full text-center">
                         <span className="font-sarabun">{"ลองปรับ"}</span>
                         <span className="text-red-600">{" Slow Down"}</span>
                         <span className=" font-sarabun">
