@@ -30,13 +30,7 @@ const SettingBox: React.FC<SettingBoxProps> = ({
   onclick: onBoxClick
 }) => {
   
-
   const isChosen = isChosenTracker === boxKey;
-
-  const boxColor = isChosen ? "amber-300" : "transparent";
-  const bgColor = isChosen ? "white" : "transparent";
-  const textColor = isChosen ? "black" : "white";
-  const tickBoxisChosenColor = isChosen ? "#38a1de" : "#eee";
   
   const DividerSvg: React.FC = () => {
     const patternId = "LineDash";
@@ -73,7 +67,7 @@ const SettingBox: React.FC<SettingBoxProps> = ({
           <div className={"flex flex-col w-1/3 items-center"} key={index}>
             <p className="text-black font-serif">{option.optionName}</p>
             {index === Props.selectedIndex ? (
-              <GrRadialSelected color={tickBoxisChosenColor} className="mb-1 cursor-pointer" />
+              <GrRadialSelected color={isChosen ? "#38a1de" : "#eee"} className="mb-1 cursor-pointer" />
             ) : (
               <GrRadial
                 color="#222"
@@ -112,13 +106,13 @@ const SettingBox: React.FC<SettingBoxProps> = ({
     );
   };
 
-  const bgClassName = "bg-" + bgColor;
-  const textClassName = "ml-[10%] text-2xl font-serif z-10 text-" + textColor;
-  const boxTriangleClassName = `absolute top-1/2 right-0 translate-y-[-50%] w-0 h-0 
-                              border-y-[24px] border-l-[24px] 
-                              border-y-transparent border-l-${boxColor} 
-                             `;
-  const boxRectangleClassName = `absolute left-0 top-0 h-full w-[calc(100%-24px)] bg-${boxColor}`;
+  const bgClassName = isChosen ? "bg-white" : "bg-transparent";
+  const textClassName = "ml-[10%] text-2xl font-serif z-10 " + 
+                        (isChosen ? "text-black" : "text-white");
+  const boxTriangleClassName = "absolute top-1/2 right-0 translate-y-[-50%] w-0 h-0 border-y-[24px] border-l-[24px] border-y-transparent " + 
+                               (isChosen ? "border-l-amber-300" : "border-l-transparent");
+  const boxRectangleClassName = "absolute left-0 top-0 h-full w-[calc(100%-24px)] " +
+                                (isChosen ? "bg-amber-300" : "bg-transparent");
   return (
     <div className={bgClassName} onClick={onBoxClick}>
       <div className="mx-[1] overflow-hidden">
